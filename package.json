@@ -1,0 +1,11 @@
+{
+    "name": "sentiment-analyze-client-fs",
+    "version": "0.0.1",
+    "description": "client for sentiment analyze service",
+    "main": "webpack.conf.js",
+    "scripts": {
+        "test": "webpack test"
+    },
+    "author": "Dominik Kotecki",
+    "license": "MIT"
+}
