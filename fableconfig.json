@@ -1,7 +1,7 @@
 {
     "module": "commonjs",
     "sourceMaps": true,
-    "projFile": "./src/app/app.fsproj",
+    "projFile": "./src/client/client.fsproj",
     "outDir": "js",
     "copyExt": true,
     "scripts": {
