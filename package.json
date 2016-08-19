@@ -1,30 +1,30 @@
 {
-  "name": "sentiment-analyze-client-fs",
-  "version": "0.0.1",
-  "description": "client for sentiment analyze service",
-  "main": "webpack.conf.js",
-  "scripts": {
-    "build": "fable",
-    "watch": "fable -w --target watch"
-  },
-  "dependencies": {
-    "babel-plugin-transform-runtime": "^6.12.0",
-    "core-js": "^2.4.1",
-    "fable-compiler": "^0.5.6",
-    "fable-core": "^0.5.4",
-    "fable-import-react": "^0.5.1",
-    "react": "^15.3.0",
-    "react-dom": "^15.2.1",
-    "source-map-loader": "^0.1.5",
-    "uglify-js": "2.7.3"
-  },
-  "devDependencies": {
-    "fable-compiler": "^0.5.6",
-    "fable": "^1.0.1",
-    "fable-import-react": "^0.5.1",
-    "babel-plugin-transform-runtime": "^6.12.0",
-    "webpack": "^1.13.2"
-  },
-  "author": "Dominik Kotecki",
-  "license": "MIT"
+    "name": "sentiment-analyze-client-fs",
+    "version": "0.0.1",
+    "description": "client for sentiment analyze service",
+    "main": "webpack.conf.js",
+    "scripts": {
+        "build": "fable",
+        "watch": "fable -w --target watch"
+    },
+    "dependencies": {
+        "babel-plugin-transform-runtime": "^6.12.0",
+        "core-js": "^2.4.1",
+        "fable-compiler": "^0.5.6",
+        "fable-core": "^0.5.4",
+        "fable-import-react": "^0.5.1",
+        "react": "^15.3.0",
+        "react-dom": "^15.2.1",
+        "source-map-loader": "^0.1.5",
+        "uglify-js": "2.7.3"
+    },
+    "devDependencies": {
+        "fable-compiler": "^0.5.6",
+        "fable": "^1.0.1",
+        "fable-import-react": "^0.5.1",
+        "babel-plugin-transform-runtime": "^6.12.0",
+        "webpack": "^1.13.2"
+    },
+    "author": "Dominik Kotecki",
+    "license": "MIT"
 }
