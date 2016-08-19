@@ -10,8 +10,7 @@ open Suave.Sockets.Control
 open Suave.WebSocket
 
 let app : WebPart =
-    choose [ GET >=> choose [ path "/" >=> file "index.html"
-                              browseHome ]
+    choose [ GET >=> choose [ path "/" >=> file "./index.html"; browseHome ]
              RequestErrors.NOT_FOUND "Found no handlers." ]    
 
 

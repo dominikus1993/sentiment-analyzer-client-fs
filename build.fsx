@@ -13,7 +13,7 @@ open Microsoft.FSharp.Compiler.Interactive.Shell
 
 let sbOut = new Text.StringBuilder()
 let sbErr = new Text.StringBuilder()
-
+let port = 8037
 let fsiSession =
   let inStream = new StringReader("")
   let outStream = new StringWriter(sbOut)
@@ -49,7 +49,7 @@ let serverConfig =
   { defaultConfig with
       homeFolder = Some (__SOURCE_DIRECTORY__ @@ "public")
       logger = Logging.Loggers.saneDefaultsFor Logging.LogLevel.Debug
-      bindings = [ HttpBinding.mkSimple HTTP  "127.0.0.1" 8034] }
+      bindings = [ HttpBinding.mkSimple HTTP  "127.0.0.1" port] }
 
 let reloadAppServer () =
   reloadScript() |> Option.iter (fun app ->
@@ -71,7 +71,7 @@ Target "develop" (fun _ ->
   startNpmWatcher ()
   use watcher = !! (__SOURCE_DIRECTORY__ @@ "src" @@ "*.*") |> WatchChanges (fun _ -> reloadAppServer())
   
-  System.Diagnostics.Process.Start("http://localhost:8034") |> ignore
+  System.Diagnostics.Process.Start(sprintf "http://localhost:%d" port) |> ignore
   System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite)
 )
 

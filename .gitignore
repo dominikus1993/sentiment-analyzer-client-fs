@@ -259,4 +259,5 @@ tmp
 .DS_Store
 .idea
 js/
-dist/
+bundle.js
+bundle.js.map

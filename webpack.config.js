@@ -1,13 +1,21 @@
+const path = require("path");
+const webpack = require("webpack");
+
 module.exports = {
     entry: "./js/client.js",
     output: {
-        filename: "./dist/bundle.js"
+        path: path.join(__dirname, "public"),
+        filename: "bundle.js"
     },
     devtool: "source-map",
     resolve: {
         extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
     },
     module: {
-        preLoader: [{ test: /\.js$/, loader: "source-map-loader" }]
+        preLoaders: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: "source-map-loader"
+        }]
     },
 };
