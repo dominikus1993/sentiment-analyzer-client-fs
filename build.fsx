@@ -11,11 +11,6 @@ open Suave
 open Suave.Web
 open Microsoft.FSharp.Compiler.Interactive.Shell
 
-// Directories
-let buildDir  = "./build/"
-let deployDir = "./deploy/"
-
-
 let sbOut = new Text.StringBuilder()
 let sbErr = new Text.StringBuilder()
 
