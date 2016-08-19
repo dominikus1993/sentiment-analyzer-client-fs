@@ -1,4 +1,4 @@
 #load "client.fs"
-open client
+open Client
 
 // Define your library scripting code here
