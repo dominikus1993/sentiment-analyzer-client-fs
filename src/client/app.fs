@@ -7,8 +7,6 @@ open Fable.Import
 module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
-
-
 type App(props) = 
     inherit React.Component<obj,obj>(props)
 
