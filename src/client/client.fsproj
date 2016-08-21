@@ -42,10 +42,10 @@
     <Compile Include="../../node_modules/fable-import-react/Fable.Import.React.fs" />
     <Compile Include="../../node_modules/fable-import-react/Fable.Helpers.React.fs" />
     <Compile Include="ajax.fs" />
+    <Compile Include="searchBox.fs" />
     <Compile Include="app.fs" />
     <Compile Include="client.fs" />
     <None Include="Script.fsx" />
-    <Compile Include="searchBox.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <Choose>
