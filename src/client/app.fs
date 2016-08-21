@@ -11,4 +11,4 @@ type App(props) =
     inherit React.Component<obj,obj>(props)
 
     member this.render () = 
-        R.div [P.ClassName "app"] [R.h1[] [unbox "Hello World"]]
+        R.div [P.ClassName "app"] [R.h1[] [R.p[] [unbox "Dzien dobry"]]]
