@@ -17,7 +17,20 @@ type SearchBox(props) as this =
         printf "dupa"
 
     member x.render() =
-        let inputPhrase = R.input [P.ClassName "phrase-input"; P.Type "text"; P.Ref (fun e -> x.setState {x.state with Text = Some(e.ToString())})][]
-        let button = R.button [P.ClassName "send"; P.Type "submit"; P.Label "Send"; P.Value <| Case1 "Post"; P.OnMouseDown x.handleSubmit][]
+        let inputPhrase = R.input [
+                            P.ClassName "phrase-input"; 
+                            P.Type "text"; 
+                            P.Ref (fun e -> x.setState {x.state with Text = Some(e.ToString())})
+                            ][]
+        let button = R.button [
+                            P.ClassName "send"; 
+                            P.Type "submit"; 
+                            P.Label "Send"; 
+                            P.Value <| Case1 "Post"; 
+                            P.OnMouseDown x.handleSubmit
+                            ][]
 
-        R.div [P.ClassName "twwetForm"][inputPhrase; button]
+        R.div [P.ClassName "twwetForm"][
+                                inputPhrase; 
+                                button
+                                ]
