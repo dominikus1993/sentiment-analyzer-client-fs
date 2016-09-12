@@ -15,10 +15,10 @@
         "uglify-js": "2.7.3"
     },
     "devDependencies": {
-        "fable-compiler": "^0.5.11",
+        "fable-compiler": "^0.6.3",
         "fable": "^1.0.1",
         "fable-import-react": "^0.5.1",
-        "fable-core": "^0.5.5",
+        "fable-core": "^0.6.0",
         "babel-plugin-transform-runtime": "^6.15.0",
         "webpack": "^1.13.2"
     },
