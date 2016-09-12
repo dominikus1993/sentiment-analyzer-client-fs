@@ -2,11 +2,12 @@
 module SearchBox
 open System
 open Fable.Core
+open Fable.Core.JsInterop
 module React = Fable.Import.React
 module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
-type Request = { Text: string option }
+type Request = { Text: obj option }
 type Handler = { Handler: string -> unit }
 
 type SearchBox(props) as this =
@@ -14,13 +15,14 @@ type SearchBox(props) as this =
     do this.state <- {Text = None}
 
     member x.handleSubmit(e: React.SyntheticEvent) =
-        printf "dupa"
+        let query = x.state.Text?value
+        printf "%A" query
 
     member x.render() =
         let inputPhrase = R.input [
                             P.ClassName "phrase-input"; 
                             P.Type "text"; 
-                            P.Ref (fun e -> x.setState {x.state with Text = Some(e.ToString())})
+                            P.Ref (fun e -> x.setState { x.state with Text = Some e })
                             ][]
         let button = R.button [
                             P.ClassName "send"; 
