@@ -7,32 +7,38 @@ module React = Fable.Import.React
 module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
-type Request = { Text: obj option }
+type Request = { Text: string option }
 type Handler = { Handler: string -> unit }
 
 type SearchBox(props) as this =
     inherit React.Component<Handler, Request>(props)
     do this.state <- {Text = None}
 
+    member x.handleTextChange(e: React.SyntheticEvent) =
+        let text = unbox e.target?value
+        x.setState { x.state with Text = Some text }
+
     member x.handleSubmit(e: React.SyntheticEvent) =
-        let query = x.state.Text?value
-        printf "%A" query
+        e.preventDefault()
+        let res = match x.state with
+                    | { Text = Some(value) } -> sprintf "%s" value
+                    | _ -> sprintf "Empty form"
+        printf "%A" res
+    
 
     member x.render() =
-        let inputPhrase = R.input [
-                            P.ClassName "phrase-input"; 
-                            P.Type "text"; 
-                            P.Ref (fun e -> x.setState { x.state with Text = Some e })
-                            ][]
-        let button = R.button [
-                            P.ClassName "send"; 
-                            P.Type "submit"; 
-                            P.Label "Send"; 
-                            P.Value <| Case1 "Post"; 
-                            P.OnMouseDown x.handleSubmit
-                            ][]
-
-        R.div [P.ClassName "twwetForm"][
-                                inputPhrase; 
-                                button
-                                ]
+        R.form[
+            P.ClassName "searchBox"
+            P.OnSubmit x.handleSubmit
+            ] [
+                R.input[
+                    P.Type "text"
+                    P.Placeholder "Wpisz szukana fraze"
+                    P.Value (U2.Case1 x.state.Text.Value)
+                    P.OnChange x.handleTextChange
+                    ][]
+                R.input[
+                    P.Type "submit"
+                    P.Value (U2.Case1 "Post")
+                    ][]
+            ]
