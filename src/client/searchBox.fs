@@ -20,10 +20,12 @@ type SearchBox(props) as this =
 
     member x.handleSubmit(e: React.SyntheticEvent) =
         e.preventDefault()
-        let res = match x.state with
-                    | { Text = Some(value) } -> sprintf "%s" value
-                    | _ -> sprintf "Empty form"
-        printf "%A" res
+        match x.state with
+        | { Text = Some(value) } -> 
+                    x.props.Handler value
+                    x.setState { x.state with Text = Some "" }
+        | _ -> ()
+        
     
 
     member x.render() =
