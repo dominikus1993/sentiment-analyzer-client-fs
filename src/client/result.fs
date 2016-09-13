@@ -8,6 +8,10 @@ module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
 
-type SearchBox(props) as this =
+type ResultBox(props) =
     inherit React.Component<Dto.Tweet list, obj>(props)
+
+    member this.render () =
+        R.h1 [] [ unbox "hello world"]
+
     
