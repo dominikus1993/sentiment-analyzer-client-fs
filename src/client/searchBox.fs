@@ -26,8 +26,6 @@ type SearchBox(props) as this =
                     x.setState { x.state with Text = Some "" }
         | _ -> ()
         
-    
-
     member x.render() =
         R.form[
             P.ClassName "searchBox"
