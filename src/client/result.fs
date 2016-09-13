@@ -9,5 +9,5 @@ module P = Fable.Helpers.React.Props
 
 
 type SearchBox(props) as this =
-    inherit React.Component<Tweet list, Request>(props)
-    do this.state <- {Text = None}
+    inherit React.Component<Dto.Tweet list, obj>(props)
+    
