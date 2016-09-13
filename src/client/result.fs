@@ -12,6 +12,6 @@ type ResultBox(props) =
     inherit React.Component<Dto.Tweet list, obj>(props)
 
     member this.render () =
-        R.h1 [] [ unbox "hello world"]
+        R.h1 [] [ unbox (Utils.countSentiment(this.props)) ]
 
     
