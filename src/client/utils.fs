@@ -1,2 +1,2 @@
 [<RequireQualifiedAccess>]
-module Util
+module Utils
