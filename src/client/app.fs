@@ -15,4 +15,5 @@ type App(props) =
 
     member this.render () = 
         let form = R.com<SearchBox.SearchBox,_,_> {Handler = handler} []
-        R.div [P.ClassName "app"] [form]
+        let box = R.com<Result.ResultBox, _, _> [] []
+        R.div [P.ClassName "app"] [form; box] 
