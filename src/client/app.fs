@@ -8,7 +8,9 @@ module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
 let handler query = 
-    printf "%A" query
+    let url = sprintf "http://localhost:8083/analyze/%s" query
+    do printf "%A" url
+    ()
 
 type App(props) = 
     inherit React.Component<obj,obj>(props)
