@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-    entry: "./js/client.js",
+    entry: "./out/client.js",
     output: {
         path: path.join(__dirname, "public"),
         filename: "bundle.js"

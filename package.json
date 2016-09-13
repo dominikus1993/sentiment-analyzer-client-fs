@@ -5,7 +5,8 @@
     "main": "webpack.conf.js",
     "scripts": {
         "build": "fable",
-        "watch": "fable -w --target watch"
+        "watch": "fable -w --target watch",
+        "test": "mocha ./out"
     },
     "dependencies": {
         "core-js": "^2.4.1",
@@ -20,7 +21,11 @@
         "fable-import-react": "^0.5.1",
         "fable-core": "^0.6.0",
         "babel-plugin-transform-runtime": "^6.15.0",
-        "webpack": "^1.13.2"
+        "webpack": "^1.13.2",
+        "fable-import-mocha": "^0.0.2",
+        "mocha": "^2.5.3",
+        "fable-import-fetch": "^0.0.2",
+        "fable-plugins-nunit": "^0.6.0"
     },
     "author": "Dominik Kotecki",
     "license": "MIT"

@@ -2,8 +2,9 @@
     "module": "commonjs",
     "sourceMaps": true,
     "projFile": "./src/client/client.fsproj",
-    "outDir": "js",
+    "outDir": "out",
     "copyExt": true,
+    "plugins": "node_modules/fable-plugins-nunit/Fable.Plugins.NUnit.dll",
     "scripts": {
         "prebuild": "npm install",
         "postbuild": "webpack"
