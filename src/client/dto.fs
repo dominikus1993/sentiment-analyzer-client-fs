@@ -10,3 +10,5 @@ type Tweet = {IdStr : string
               Longitude : double
               Latitude : double
               Sentiment : int}
+
+type Result = {data: Tweet []}
