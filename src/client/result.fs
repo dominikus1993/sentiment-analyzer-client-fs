@@ -13,5 +13,3 @@ type ResultBox(props) =
 
     member this.render () =
         R.h1 [] [ unbox (Utils.countSentiment(this.props)) ]
-
-    
