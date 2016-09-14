@@ -14,10 +14,9 @@ type App(props) as this=
     member x.handleSearchBoxQuery (query: string) =
        let url = sprintf "http://localhost:8083/analyze/%s" query
        do printf "%A" url
-       this.setState { this.state with data = [|{IdStr = "1"; Text = "Test"; Key = "Key"; Date = System.DateTime.Now; Lang = "En"; Longitude = 1.1; Latitude = 1.1; Sentiment = 10}|]}
        () 
 
     member x.render () = 
-        let form = R.com<SearchBox.SearchBox,_,_> {Handler = this.handleSearchBoxQuery} []
-        let box = R.com<Result.ResultBox, _, _> this.state.data []
+        let form = R.com<SearchBox.SearchBox,_,_> {Handler = x.handleSearchBoxQuery} []
+        let box = R.com<Result.ResultBox, _, _> x.state.data []
         R.div [P.ClassName "app"] [form; box] 
