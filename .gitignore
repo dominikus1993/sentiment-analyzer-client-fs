@@ -263,3 +263,8 @@ bundle.js
 bundle.js.map
 dist/
 out/
+*.woff2
+*.svg
+*.ttf
+*.eot
+*.woff

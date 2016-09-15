@@ -1,33 +1,39 @@
 {
-    "name": "sentiment-analyze-client-fs",
-    "version": "0.0.1",
-    "description": "client for sentiment analyze service",
-    "main": "webpack.conf.js",
-    "scripts": {
-        "build": "fable",
-        "watch": "fable -w --target watch",
-        "test": "mocha ./out"
-    },
-    "dependencies": {
-        "core-js": "^2.4.1",
-        "react": "^15.3.1",
-        "react-dom": "^15.3.1",
-        "source-map-loader": "^0.1.5",
-        "uglify-js": "2.7.3",
-        "isomorphic-fetch": "^2.2.1"
-    },
-    "devDependencies": {
-        "fable-compiler": "^0.6.3",
-        "fable": "^1.0.1",
-        "fable-import-react": "^0.5.1",
-        "fable-core": "^0.6.0",
-        "babel-plugin-transform-runtime": "^6.15.0",
-        "webpack": "^1.13.2",
-        "fable-import-mocha": "^0.0.3",
-        "mocha": "^3.0.2",
-        "fable-import-fetch": "^0.2.3",
-        "fable-plugins-nunit": "^0.6.0"
-    },
-    "author": "Dominik Kotecki",
-    "license": "MIT"
+  "name": "sentiment-analyze-client-fs",
+  "version": "0.0.1",
+  "description": "client for sentiment analyze service",
+  "main": "webpack.conf.js",
+  "scripts": {
+    "build": "fable",
+    "watch": "fable -w --target watch",
+    "test": "mocha ./out"
+  },
+  "dependencies": {
+    "core-js": "^2.4.1",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "source-map-loader": "^0.1.5",
+    "uglify-js": "2.7.3",
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "bootstrap": "^3.3.7",
+    "css-loader": "^0.25.0",
+    "fable": "^1.0.1",
+    "fable-compiler": "^0.6.3",
+    "fable-core": "^0.6.0",
+    "fable-import-fetch": "^0.2.3",
+    "fable-import-mocha": "^0.0.3",
+    "fable-import-react": "^0.5.1",
+    "fable-plugins-nunit": "^0.6.0",
+    "file-loader": "^0.9.0",
+    "mocha": "^3.0.2",
+    "react-bootstrap": "^0.30.3",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.2"
+  },
+  "author": "Dominik Kotecki",
+  "license": "MIT"
 }
