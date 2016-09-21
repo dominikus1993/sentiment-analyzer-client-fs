@@ -12,8 +12,9 @@ type App(props) as this=
     do this.state <- {data = []}
 
     member x.handleSearchBoxQuery (query: string) =
-       let url = sprintf "http://localhost:8083/analyze/%s" query
-       do printf "%A" url
+       let url = Ajax.buildRequestUrl "http://localhost:8083/analyze" query
+       Ajax.ajax (Ajax.Get url) (fun items -> x.setState({ x.state with data = items})) (fun status ->
+                Browser.console.error(status))
        () 
 
     member x.render () = 

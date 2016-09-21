@@ -27,18 +27,19 @@ type SearchBox(props) as this =
         | _ -> ()
         
     member x.render() =
-        R.form[
-            P.ClassName "searchBox"
-            P.OnSubmit x.handleSubmit
-            ] [
-                R.input[
-                    P.Type "text"
-                    P.Placeholder "Wpisz szukana fraze"
-                    P.Value (U2.Case1 x.state.Text.Value)
-                    P.OnChange x.handleTextChange
-                    ][]
-                R.input[
-                    P.Type "submit"
-                    P.Value (U2.Case1 "Post")
-                    ][]
-            ]
+        let form = R.form[                    
+                    P.OnSubmit x.handleSubmit
+                    ] [
+                        R.input[
+                            P.Type "text"
+                            P.Placeholder "Wpisz szukana fraze"
+                            P.Value (U2.Case1 x.state.Text.Value)
+                            P.OnChange x.handleTextChange
+                            ][]
+                        R.input[
+                            P.Type "submit"
+                            P.Value (U2.Case1 "Post")
+                            ][]
+                    ]
+        let nav = R.h1[P.ClassName "sb-nav"][unbox "Sentiment Analyzer"]
+        R.div[P.ClassName "searchBox"][nav; form]

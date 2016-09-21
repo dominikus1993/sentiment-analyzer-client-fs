@@ -22,10 +22,11 @@ let ajax meth onSuccess onError =
     let req = XMLHttpRequest.Create()
 
     req.onreadystatechange <- fun _ ->
-       match req.readyState with
-       | 4. when req.status = 200. || req.status = 0. -> JS.JSON.parse req.responseText |> unbox |> onSuccess
-       | 4. -> req.statusText |> onError
-       | _ -> null
+        if req.readyState = 4. then
+            match req.status  with
+            | 200. | 0. -> JS.JSON.parse req.responseText |> unbox |> onSuccess
+            | _ -> req.statusText |> onError
+        null
     
     req.``open``(http, url, true)
     req.send(data)
