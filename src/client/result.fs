@@ -9,7 +9,7 @@ module P = Fable.Helpers.React.Props
 
 
 type ResultBox(props) =
-    inherit React.Component<Dto.Tweet list, obj>(props)
+    inherit React.Component<Dto.Tweet[], obj>(props)
 
     member this.render () =
         R.h1 [] [ unbox (Utils.countSentiment(this.props)) ]
