@@ -1,18 +1,21 @@
-
-[<RequireQualifiedAccess>]
 module App
 open System
 open Fable.Core
 open Fable.Import
+open Dto
 module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
-let handler query = 
-    printf "%A" query
+type App(props) as this= 
+    inherit React.Component<obj,Dto.Result>(props)
+    do this.state <- { data = [||] }
 
-type App(props) = 
-    inherit React.Component<obj,obj>(props)
+    member x.handleSearchBoxQuery (query: string) =
+       let url = Ajax.buildRequestUrl "http://localhost:8083/analyze" query
+       Ajax.ajax (Ajax.Get url) (fun items -> x.setState({ data = items})) (fun status -> Browser.console.error(status))
+       () 
 
-    member this.render () = 
-        let form = R.com<SearchBox.SearchBox,_,_> {Handler = handler} []
-        R.div [P.ClassName "app"] [form]
+    member x.render () = 
+        let form = R.com<SearchBox.SearchBox,_,_> {Handler = x.handleSearchBoxQuery} []
+        let box = R.com<Result.ResultBox, _, _> x.state.data []
+        R.div [P.ClassName "app"] [form; box] 

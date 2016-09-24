@@ -2,7 +2,10 @@
     "module": "commonjs",
     "sourceMaps": true,
     "projFile": "./src/client/client.fsproj",
-    "outDir": "js",
+    "outDir": "out",
+    "babelPlugins": [
+        "transform-runtime"
+    ],
     "copyExt": true,
     "scripts": {
         "prebuild": "npm install",

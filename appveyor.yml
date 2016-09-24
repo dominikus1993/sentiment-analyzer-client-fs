@@ -8,6 +8,7 @@ install:
   - ps: Install-Product node $env:nodejs_version
   # install modules
   - npm install -g fable-compiler
+  - npm install -g webpack
   - npm install
 # Post-install test scripts.
 test_script:
@@ -15,7 +16,7 @@ test_script:
   - node --version
   - npm --version
   # run tests
-  - npm test
+  - fable
 
 # Don't actually build.
 build: off
