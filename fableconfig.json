@@ -3,6 +3,9 @@
     "sourceMaps": true,
     "projFile": "./src/client/client.fsproj",
     "outDir": "out",
+    "babelPlugins": [
+        "transform-runtime"
+    ],
     "copyExt": true,
     "scripts": {
         "prebuild": "npm install",
