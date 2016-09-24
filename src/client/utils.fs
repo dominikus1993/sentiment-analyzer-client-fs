@@ -12,7 +12,7 @@ let countSentiment (tweets: Tweet []) =
         double (sum / count)
 
 let getImgBySentiment = function
-    | n when n < 0.0 -> "sad.png"
-    | n when n = 0.0 -> "neutral.png"
-    | n when n > 0.0 -> "happy.png"
-    | _ -> "neutral.png"
+    | n when n < 0.0 -> "img/sad.jpg"
+    | n when n = 0.0 -> "img/neutral.jpg"
+    | n when n > 0.0 -> "img/happy.png"
+    | _ -> "img/neutral.jpg"
