@@ -1,4 +1,3 @@
-[<RequireQualifiedAccess>]
 module Dto
 open System
 
@@ -11,4 +10,4 @@ type Tweet = {IdStr : string
               Latitude : double
               Sentiment : int}
 
-type Result = {data: Tweet[]}
+type Result = { data: Tweet[] }

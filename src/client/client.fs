@@ -2,7 +2,7 @@ module Client
 open System
 open Fable.Core
 open Fable.Import
-
+open App
 module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
