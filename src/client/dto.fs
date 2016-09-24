@@ -11,3 +11,5 @@ type Tweet = {IdStr : string
               Sentiment : int}
 
 type Result = { data: Tweet[] }
+
+type Sentiment = { Sentiment: double }
