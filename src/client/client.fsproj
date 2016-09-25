@@ -46,6 +46,7 @@
     <Compile Include="utils.fs" />
     <Compile Include="ajax.fs" />
     <Compile Include="searchBox.fs" />
+    <Compile Include="emotion.fs" />
     <Compile Include="result.fs" />
     <Compile Include="app.fs" />
     <Compile Include="client.fs" />
