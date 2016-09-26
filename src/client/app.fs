@@ -3,6 +3,7 @@ open System
 open Fable.Core
 open Fable.Import
 open Dto
+open ResultBox
 module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
@@ -17,5 +18,5 @@ type App(props) as this=
 
     member x.render () = 
         let form = R.com<SearchBox.SearchBox,_,_> {Handler = x.handleSearchBoxQuery} []
-        let box = R.com<Result.ResultBox, _, _> x.state.data []
+        let box = R.com<ResultBox, _, _> x.state []
         R.div [P.ClassName "app"] [form; box] 

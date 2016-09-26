@@ -6,9 +6,8 @@ let countSentiment (tweets: Tweet []) =
     | [||] -> 
         0.0
     | tweetsArray ->
-        let arr = tweetsArray |> Seq.ofArray
-        let sum = arr |> Seq.fold(fun acc x -> acc + x.Sentiment) 0
-        let count = arr |> Seq.length
+        let sum = tweetsArray |> Array.fold(fun acc x -> acc + x.Sentiment) 0
+        let count = tweetsArray |> Array.length
         double (sum / count)
 
 let getImgBySentiment = function
