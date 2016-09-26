@@ -12,7 +12,7 @@ type App(props) as this=
     do this.state <- { data = [||] }
 
     member x.handleSearchBoxQuery (query: string) =
-       let url = Ajax.buildRequestUrl "http://localhost:8083/analyze" query
+       let url = Ajax.buildRequestUrl Constants.apiUrl query
        Ajax.ajax (Ajax.Get url) (fun items -> x.setState({ data = items})) (fun status -> Browser.console.error(status))
        () 
 

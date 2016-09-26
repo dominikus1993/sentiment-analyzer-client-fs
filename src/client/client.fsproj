@@ -42,6 +42,7 @@
     <Compile Include="../../node_modules/fable-import-react/Fable.Import.React.fs" />
     <Compile Include="../../node_modules/fable-import-react/Fable.Helpers.React.fs" />
     <Compile Include="../../node_modules/fable-import-fetch/Fable.Import.Fetch.fs" />
+    <Compile Include="constants.fs" />
     <Compile Include="dto.fs" />
     <Compile Include="utils.fs" />
     <Compile Include="ajax.fs" />
