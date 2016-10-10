@@ -11,7 +11,7 @@ module P = Fable.Helpers.React.Props
 
 
 type ResultBox(props) =
-    inherit React.Component<Result, obj>(props)
+    inherit React.Component<Sentiments, obj>(props)
 
     member x.render () =
         let sentiment = { Sentiment = countSentiment(x.props.data) }

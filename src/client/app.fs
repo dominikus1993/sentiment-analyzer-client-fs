@@ -8,7 +8,7 @@ module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
 type App(props) as this= 
-    inherit React.Component<obj,Dto.Result>(props)
+    inherit React.Component<obj,Dto.Sentiments>(props)
     do this.state <- { data = [||] }
 
     member x.handleSearchBoxQuery (query: string) =
