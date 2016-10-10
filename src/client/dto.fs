@@ -10,6 +10,10 @@ type Tweet = {IdStr : string
               Latitude : double
               Sentiment : int}
 
-type Result = { data: Tweet[] }
+type Result = { value: Tweet[]; isSuccess: bool; messages: string[] }
+
+type Sentiments = { data: Tweet[] }
 
 type Sentiment = { Sentiment: double }
+
+type KeyBySentimentValue = { key: string; value: double }
