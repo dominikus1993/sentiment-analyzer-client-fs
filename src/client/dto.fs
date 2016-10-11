@@ -10,6 +10,13 @@ type Tweet = {IdStr : string
               Latitude : double
               Sentiment : int}
 
+type TweetAction = 
+    | GetRandomStatistics of int
+    | Search of string
+
+let [<Literal>] ESCAPE_KEY = 27.
+let [<Literal>] ENTER_KEY = 13.
+
 type Result = { value: Tweet[]; isSuccess: bool; messages: string[] }
 
 type Sentiments = { data: Tweet[] }
