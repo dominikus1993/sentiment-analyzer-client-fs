@@ -2,6 +2,9 @@ module TweetTextInput
 open System
 open Fable.Core
 open Fable.Import
+module React = Fable.Import.React
+module R = Fable.Helpers.React
+module P = Fable.Helpers.React.Props
 
 type ITweetTextInputProps =
     abstract OnSave: string->unit
@@ -16,4 +19,5 @@ type TweetTextInput(props, ctx) as this =
     do this.state <- { Text = defaultArg this.props.Text "" }
 
     member this.render() =
+        R.h1 [] [unbox "Hello world"]
         
