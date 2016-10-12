@@ -25,6 +25,21 @@ type TweetTextInput(props, ctx) as this =
             this.props.OnSave(text)
             if this.props.Search then
                 this.setState({ Text = "" })
+
+    member this.HandleChange(e: React.SyntheticEvent) =
+        this.setState({ Text = unbox e.target?value })
+    
+    member this.HandleBlur(e: React.SyntheticEvent) =
+        if not this.props.Search then
+            this.props.OnSave(unbox e.target?value)
     member this.render() =
-        R.h1 [] [unbox "Hello world"]
+        R.h1 [
+            P.ClassName "tweetInput"
+            P.Type "text"
+            P.OnBlur this.HandleBlur
+            P.OnChange this.HandleChange
+            P.OnKeyDown this.HandleSubmit
+            P.AutoFocus (this.state.Text.Length > 0)
+            P.Placeholder this.props.Placeholder
+            ] []
         
