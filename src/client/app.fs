@@ -1,4 +1,4 @@
-module Components
+module App
 open System
 open Fable.Core
 open Fable.Import
