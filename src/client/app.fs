@@ -7,7 +7,7 @@ open ResultBox
 module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
-type App(props) as this= 
+type AppComponent(props) as this= 
     inherit React.Component<obj,Dto.Sentiments>(props)
     do this.state <- { data = [||] }
 

@@ -10,4 +10,4 @@ Node.require.Invoke("core-js") |> ignore
 Node.require.Invoke("bootstrap/dist/css/bootstrap.css") |> ignore
 
 let model = new Object()
-ReactDom.render(R.com<App.App,_,_> model [], Browser.document.getElementById("container")) |> ignore
+ReactDom.render(R.com<App.AppComponent,_,_> model [], Browser.document.getElementById("container")) |> ignore
