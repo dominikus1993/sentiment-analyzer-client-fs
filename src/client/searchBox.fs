@@ -1,6 +1,7 @@
 [<RequireQualifiedAccess>]
 module SearchBox
 open Dto
+open Button
 open System
 open TweetTextInput
 open Fable.Core
@@ -34,7 +35,7 @@ type SearchBoxComponent(props) as this =
 
         let form = R.div[P.ClassName (classNames [("input-group", true); ("input-group-lg", true)])] [
                         textInput
-                        R.span [P.ClassName "input-group-btn"] [button]
+                        R.span [P.ClassName "input-group-btn"] [R.com<ButtonComponent, _, _> { Value = "Szukaj" } []]
                     ]
         let inputGroup = R.div[P.ClassName "col-lg-12"][form]
         R.div [P.ClassName "row"] [inputGroup]        
