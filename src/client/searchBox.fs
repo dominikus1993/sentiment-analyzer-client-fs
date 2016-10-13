@@ -25,7 +25,7 @@ type SearchBoxComponent(props) as this =
                     member __.Placeholder = "Wpisz fraze"
                     member __.Search = true
                 } []
-        let form = R.div[P.ClassName (classNames [("form-group", true); ("fullWidth", true)])] [
+        let form = R.div[P.ClassName (classNames [("input-group", true); ("input-group-lg", true)])] [
                         textInput
                         R.input[
                             P.ClassName (classNames [("btn", true); ("btn-default", true); ("btn-lg", true)])
@@ -33,4 +33,5 @@ type SearchBoxComponent(props) as this =
                             P.Value (U2.Case1 "Post")
                             ][]
                     ]
-        R.div[P.ClassName (classNames [("form-inline", true); ("fullWidth", true)])][form]
+        let inputGroup = R.div[P.ClassName "col-lg-12"][form]
+        R.div [P.ClassName "row"] [inputGroup]        
