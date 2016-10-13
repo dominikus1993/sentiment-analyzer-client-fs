@@ -29,7 +29,7 @@ type SearchBoxComponent(props) as this =
         let button = R.input[
                             P.ClassName (classNames [("btn", true); ("btn-default", true); ("btn-lg", true)])
                             P.Type "submit"
-                            P.Value (U2.Case1 "Post")
+                            P.Value (U2.Case1 "Szukaj")
                             ][]
 
         let form = R.div[P.ClassName (classNames [("input-group", true); ("input-group-lg", true)])] [
