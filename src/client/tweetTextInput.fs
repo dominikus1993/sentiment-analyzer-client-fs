@@ -33,7 +33,7 @@ type TweetTextInputComponent(props, ctx) as this =
         if not this.props.Search then
             this.props.OnSearch(unbox e.target?value)
     member this.render() =
-        R.h1 [
+        R.input [
             P.ClassName "tweetInput"
             P.Type "text"
             P.OnBlur this.HandleBlur
