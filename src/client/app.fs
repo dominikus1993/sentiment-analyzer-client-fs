@@ -19,4 +19,4 @@ type AppComponent(props) as this=
     member x.render () = 
         let form = R.com<SearchBox.SearchBoxComponent,_,_> {Search = x.handleSearchBoxQuery} []
         let box = R.com<ResultBox, _, _> x.state []
-        R.div [P.ClassName "app"] [form; box] 
+        R.div [P.ClassName "container"] [form; box] 
