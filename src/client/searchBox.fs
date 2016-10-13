@@ -24,12 +24,11 @@ type SearchBoxComponent(props) as this =
                     member __.Placeholder = "Wpisz szukaną fraze"
                     member __.Search = true
                 } []
-        let form = R.div[P.ClassName "searchBox"] [
+        let form = R.div[P.ClassName "form-group"] [
                         textInput
                         R.input[
                             P.Type "submit"
                             P.Value (U2.Case1 "Post")
                             ][]
                     ]
-        let nav = R.h1[P.ClassName "sb-nav"][unbox "Analizuj"]
-        R.div[P.ClassName "searchBox"][nav; form]
+        R.div[P.ClassName "form-inline"][form]
