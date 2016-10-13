@@ -24,3 +24,6 @@ type Sentiments = { data: Tweet[] }
 type Sentiment = { Sentiment: double }
 
 type KeyBySentimentValue = { key: string; value: double }
+
+let classNames =
+    List.choose (fun (text, add) -> if add then Some text else None) >> String.Concat
