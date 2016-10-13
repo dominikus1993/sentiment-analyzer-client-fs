@@ -1,45 +1,35 @@
 [<RequireQualifiedAccess>]
 module SearchBox
 open System
+open TweetTextInput
 open Fable.Core
 open Fable.Core.JsInterop
 module React = Fable.Import.React
 module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
-type Request = { Text: string option }
-type Handler = { Handler: string -> unit }
+type SearchBoxProps = { Search: string -> unit }
 
-type SearchBox(props) as this =
-    inherit React.Component<Handler, Request>(props)
-    do this.state <- {Text = None}
+type SearchBoxComponent(props) as this =
+    inherit React.Component<SearchBoxProps, obj>(props)
 
-    member x.handleTextChange(e: React.SyntheticEvent) =
-        let text = unbox e.target?value
-        x.setState { x.state with Text = Some text }
-
-    member x.handleSubmit(e: React.SyntheticEvent) =
-        e.preventDefault()
-        match x.state with
-        | { Text = Some(value) } -> 
-                    x.props.Handler value
-                    x.setState { x.state with Text = Some "" }
-        | _ -> ()
-        
     member x.render() =
-        let form = R.form[                    
-                    P.OnSubmit x.handleSubmit
-                    ] [
-                        R.input[
-                            P.Type "text"
-                            P.Placeholder "Wpisz szukana fraze"
-                            P.Value (U2.Case1 x.state.Text.Value)
-                            P.OnChange x.handleTextChange
-                            ][]
+        let textInput = 
+            R.com<TweetTextInputComponent,_,_> 
+                { new ITweetTextInputProps with
+                    member __.OnSearch(text: string) =
+                        if text.Length <> 0 then
+                            this.props.Search text
+                    member __.Text = None
+                    member __.Placeholder = "Wpisz szukaną fraze"
+                    member __.Search = true
+                } []
+        let form = R.div[P.ClassName "searchBox"] [
+                        textInput
                         R.input[
                             P.Type "submit"
                             P.Value (U2.Case1 "Post")
                             ][]
                     ]
-        let nav = R.h1[P.ClassName "sb-nav"][unbox "Sentiment Analyzer"]
+        let nav = R.h1[P.ClassName "sb-nav"][unbox "Analizuj"]
         R.div[P.ClassName "searchBox"][nav; form]

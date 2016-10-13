@@ -15,7 +15,7 @@ type ITweetTextInputProps =
 
 type TweetTextInputState = { Text: string }
 
-type TweetTextInput(props, ctx) as this = 
+type TweetTextInputComponent(props, ctx) as this = 
     inherit React.Component<ITweetTextInputProps, TweetTextInputState>(props, ctx)
     do this.state <- { Text = defaultArg this.props.Text "" }
 
