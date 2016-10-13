@@ -8,7 +8,7 @@ module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
 type ITweetTextInputProps =
-    abstract OnSave: string->unit
+    abstract OnSearch: string->unit
     abstract Text: string option
     abstract Placeholder: string
     abstract Search: bool
@@ -22,7 +22,7 @@ type TweetTextInput(props, ctx) as this =
     member this.HandleSubmit(e: React.KeyboardEvent) =
         if e.which = Dto.ENTER_KEY then
             let text = (unbox<string> e.target?value).Trim()
-            this.props.OnSave(text)
+            this.props.OnSearch(text)
             if this.props.Search then
                 this.setState({ Text = "" })
 
@@ -31,7 +31,7 @@ type TweetTextInput(props, ctx) as this =
     
     member this.HandleBlur(e: React.SyntheticEvent) =
         if not this.props.Search then
-            this.props.OnSave(unbox e.target?value)
+            this.props.OnSearch(unbox e.target?value)
     member this.render() =
         R.h1 [
             P.ClassName "tweetInput"
