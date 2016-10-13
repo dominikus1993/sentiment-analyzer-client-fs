@@ -48,6 +48,7 @@
     <Compile Include="utils.fs" />
     <Compile Include="ajax.fs" />
     <Compile Include="reducers.fs" />
+    <Compile Include="button.fs" />
     <Compile Include="tweetTextInput.fs" />
     <Compile Include="searchBox.fs" />
     <Compile Include="emotion.fs" />
