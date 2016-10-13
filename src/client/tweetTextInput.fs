@@ -1,4 +1,5 @@
 module TweetTextInput
+open Dto
 open System
 open Fable.Core
 open Fable.Core.JsInterop
@@ -34,7 +35,7 @@ type TweetTextInputComponent(props, ctx) as this =
             this.props.OnSearch(unbox e.target?value)
     member this.render() =
         R.input [
-            P.ClassName "tweetInput"
+            P.ClassName (classNames [("tweetInput", true); ("form-control", true)])
             P.Type "text"
             P.OnBlur this.HandleBlur
             P.OnChange this.HandleChange
