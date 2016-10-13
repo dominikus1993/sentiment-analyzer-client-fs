@@ -35,7 +35,7 @@ type TweetTextInputComponent(props, ctx) as this =
             this.props.OnSearch(unbox e.target?value)
     member this.render() =
         R.input [
-            P.ClassName (classNames [("tweetInput", true); ("form-control", true)])
+            P.ClassName (classNames [("input-lg", true); ("form-control", true)])
             P.Type "text"
             P.OnBlur this.HandleBlur
             P.OnChange this.HandleChange
