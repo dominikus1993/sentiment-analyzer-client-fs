@@ -52,7 +52,7 @@
     <Compile Include="tweetTextInput.fs" />
     <Compile Include="searchBox.fs" />
     <Compile Include="emotion.fs" />
-    <Compile Include="result.fs" />
+    <Compile Include="score.fs" />
     <Compile Include="app.fs" />
     <Compile Include="client.fs" />
     <None Include="Script.fsx" />

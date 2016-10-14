@@ -1,4 +1,4 @@
-module ResultBox
+module Score
 open System
 open Fable.Core
 open Fable.Core.JsInterop
@@ -10,11 +10,11 @@ module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
 
-type ResultBox(props) =
+type ScoreComponent(props) =
     inherit React.Component<Sentiments, obj>(props)
 
     member x.render () =
-        let sentiment = { Sentiment = countSentiment(x.props.data) }
+        let sentiment = { Value = countSentiment(x.props.data) }
         printf "%A" sentiment
-        let box = R.com<EmotionBox, _, _> sentiment []
+        let box = R.com<Emotion.EmotionTextComponent, _, _> sentiment []
         R.div [ P.ClassName "Result" ] [box]
