@@ -12,7 +12,7 @@ module P = Fable.Helpers.React.Props
 
 type ScoreComponent(props) =
     inherit React.Component<Sentiments, obj>(props)
-
+    
     member x.render () =
         let sentiment = { Value = countSentiment(x.props.data) }
         printf "%A" sentiment
