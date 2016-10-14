@@ -21,11 +21,11 @@ type EmotionTextComponent(props) =
 
     member x.render () =
         let text = R.h1 [P.ClassName ""] [unbox (getEmotionText x.props.Value)]
-        R.h1 [] [text]
+        text
 
 type EmotionValueComponent(props) =
     inherit React.Component<EmotionProps, obj>(props)
 
     member x.render () =
         let text = R.h1 [P.ClassName ""] [unbox (x.props.Value.ToString())]
-        R.h1 [] [text]
+        text
