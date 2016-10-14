@@ -13,7 +13,7 @@ type AppComponent(props) as this=
 
     member x.handleSearchBoxQuery (query: string) =
        let url = Ajax.buildRequestUrl Constants.apiUrl query
-       Ajax.ajax (Ajax.Get url) (fun items -> x.setState({ data = items})) (fun status -> Browser.console.error(status))
+       Ajax.request (Ajax.Get url) (fun items -> x.setState({ data = items})) (fun status -> Browser.console.error(status))
        () 
 
     member x.render () = 
