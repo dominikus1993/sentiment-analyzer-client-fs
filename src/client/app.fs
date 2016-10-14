@@ -3,7 +3,7 @@ open System
 open Fable.Core
 open Fable.Import
 open Dto
-open ResultBox
+open Score
 module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
@@ -18,5 +18,5 @@ type AppComponent(props) as this=
 
     member x.render () = 
         let form = R.com<SearchBox.SearchBoxComponent,_,_> {Search = x.handleSearchBoxQuery} []
-        let box = R.com<ResultBox, _, _> x.state []
+        let box = R.com<ScoreComponent, _, _> x.state []
         R.div [P.ClassName "container"] [form; box] 
