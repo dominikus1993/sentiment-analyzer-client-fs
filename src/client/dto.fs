@@ -17,9 +17,9 @@ type TweetAction =
 let [<Literal>] ESCAPE_KEY = 27.
 let [<Literal>] ENTER_KEY = 13.
 
-type Result = { value: Tweet[]; isSuccess: bool; messages: string[] }
+type Tweets = { data: Tweet[] }
 
-type Sentiments = { data: Tweet[] }
+type Result = { value: Tweet[]; isSuccess: bool; messages: string[] }
 
 type KeyBySentimentValue = { key: string; value: double }
 

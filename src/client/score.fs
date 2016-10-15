@@ -9,9 +9,8 @@ module React = Fable.Import.React
 module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
-
 type ScoreComponent(props) =
-    inherit React.Component<Sentiments, obj>(props)
+    inherit React.Component<Tweets, obj>(props)
 
     member x.render () =
         let sentiment = { Value = countSentiment(x.props.data) }
