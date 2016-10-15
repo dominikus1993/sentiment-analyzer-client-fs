@@ -16,4 +16,4 @@ type ScoreComponent(props) =
         let sentiment = { Value = countSentiment(x.props.data) }
         let text = R.div [P.ClassName "text" ] [R.com<Emotion.EmotionTextComponent, _, _> sentiment []]
         let value = R.div [P.ClassName "value" ] [R.com<Emotion.EmotionValueComponent, _, _> sentiment []]
-        R.div [ P.ClassName "Result" ] [text; value]
+        R.div [ P.ClassName "score" ] [text; value]
