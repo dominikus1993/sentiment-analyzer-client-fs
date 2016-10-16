@@ -1184,6 +1184,10 @@ fable-core@^0.6.9:
   version "0.6.9"
   resolved "https://registry.yarnpkg.com/fable-core/-/fable-core-0.6.9.tgz#bbdbfe25a7b07a6c1e6b6e3f0ab2bdcc457550f6"
 
+fable-import-d3:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/fable-import-d3/-/fable-import-d3-0.0.4.tgz#1e286b7c35e9f4b13d7a932e4ff6c1c98bbb1f7c"
+
 fable-import-fetch@^0.2.4:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/fable-import-fetch/-/fable-import-fetch-0.2.4.tgz#4d60d8ff6805aef2783206be65c806c9e86237d5"
