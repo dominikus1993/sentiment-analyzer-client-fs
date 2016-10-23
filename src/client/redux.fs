@@ -8,7 +8,7 @@ type IStore<'TState, 'TAction> = interface end
 
 let [<Import("createStore","redux")>] private createStore' = obj()
 
-let crateStore (reducer: 'TState -> 'TAction -> 'TState) (initState: 'TState) = 
+let createStore (reducer: 'TState -> 'TAction -> 'TState) (initState: 'TState) = 
     let reducer = fun state action -> 
         match box action?Case with
         | :? string -> reducer state action
