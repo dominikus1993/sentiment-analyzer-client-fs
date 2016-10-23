@@ -7,6 +7,8 @@ open Score
 module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
+type AppStore = { Store: Redux.IStore<Tweet[], TweetAction>}
+
 type AppComponent(props) as this= 
     inherit React.Component<obj,Tweets>(props)
     do this.state <- { data = [||] }
