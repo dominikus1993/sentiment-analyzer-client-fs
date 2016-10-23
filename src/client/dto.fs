@@ -17,7 +17,7 @@ type TweetAction =
 let [<Literal>] ESCAPE_KEY = 27.
 let [<Literal>] ENTER_KEY = 13.
 
-type Tweets = { data: Tweet[] }
+type Tweets = { data: Tweet[]; dispatch: TweetAction -> unit }
 
 type Result = { value: Tweet[]; isSuccess: bool; messages: string[] }
 
