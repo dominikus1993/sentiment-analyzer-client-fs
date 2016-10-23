@@ -10,10 +10,18 @@ type Tweet = {IdStr : string
               Latitude : double
               Sentiment : int}
 
+type TweetAction = 
+    | GetRandomStatistics of int
+    | Search of string
+
+let [<Literal>] ESCAPE_KEY = 27.
+let [<Literal>] ENTER_KEY = 13.
+
+type Tweets = { data: Tweet[]; dispatch: TweetAction -> unit }
+
 type Result = { value: Tweet[]; isSuccess: bool; messages: string[] }
 
-type Sentiments = { data: Tweet[] }
-
-type Sentiment = { Sentiment: double }
-
 type KeyBySentimentValue = { key: string; value: double }
+
+let classNames =
+    List.choose (fun (text, add) -> if add then Some text else None) >> String.concat " "

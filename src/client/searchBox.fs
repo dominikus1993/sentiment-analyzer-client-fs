@@ -1,45 +1,41 @@
 [<RequireQualifiedAccess>]
 module SearchBox
+open Dto
+open Button
 open System
+open TweetTextInput
 open Fable.Core
 open Fable.Core.JsInterop
 module React = Fable.Import.React
 module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
-type Request = { Text: string option }
-type Handler = { Handler: string -> unit }
+type SearchBoxProps = { Search: string -> unit }
 
-type SearchBox(props) as this =
-    inherit React.Component<Handler, Request>(props)
-    do this.state <- {Text = None}
+type SearchBoxComponent(props) as this =
+    inherit React.Component<SearchBoxProps, obj>(props)
 
-    member x.handleTextChange(e: React.SyntheticEvent) =
-        let text = unbox e.target?value
-        x.setState { x.state with Text = Some text }
-
-    member x.handleSubmit(e: React.SyntheticEvent) =
-        e.preventDefault()
-        match x.state with
-        | { Text = Some(value) } -> 
-                    x.props.Handler value
-                    x.setState { x.state with Text = Some "" }
-        | _ -> ()
-        
     member x.render() =
-        let form = R.form[                    
-                    P.OnSubmit x.handleSubmit
-                    ] [
-                        R.input[
-                            P.Type "text"
-                            P.Placeholder "Wpisz szukana fraze"
-                            P.Value (U2.Case1 x.state.Text.Value)
-                            P.OnChange x.handleTextChange
-                            ][]
-                        R.input[
+        let textInput = 
+            R.com<TweetTextInputComponent,_,_> 
+                { new ITweetTextInputProps with
+                    member __.OnSearch(text: string) =
+                        if text.Length <> 0 then
+                            this.props.Search text
+                    member __.Text = None
+                    member __.Placeholder = "Wpisz fraze"
+                    member __.Search = true
+                } []
+
+        let button = R.input[
+                            P.ClassName (classNames [("btn", true); ("btn-default", true); ("btn-lg", true)])
                             P.Type "submit"
-                            P.Value (U2.Case1 "Post")
+                            P.Value (U2.Case1 "Szukaj")
                             ][]
+
+        let form = R.div[P.ClassName (classNames [("input-group", true); ("input-group-lg", true)])] [
+                        textInput
+                        R.span [P.ClassName "input-group-btn"] [R.com<ButtonComponent, _, _> { Value = "Szukaj" } []]
                     ]
-        let nav = R.h1[P.ClassName "sb-nav"][unbox "Sentiment Analyzer"]
-        R.div[P.ClassName "searchBox"][nav; form]
+        let inputGroup = R.div[P.ClassName "col-lg-12"][form]
+        R.div [P.ClassName "row"] [inputGroup]        

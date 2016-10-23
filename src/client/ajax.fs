@@ -13,7 +13,7 @@ let buildRequestUrl domain req =
     sprintf "%s/%s" domain req
 
 
-let ajax meth onSuccess onError =
+let request meth onSuccess onError =
     let url, http, data =
         match meth with
         | Get url -> url, "GET", None
