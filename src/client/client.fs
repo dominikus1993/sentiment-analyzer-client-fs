@@ -14,5 +14,7 @@ Node.require.Invoke("bootstrap/dist/css/bootstrap.css") |> ignore
 let store =
     [|{IdStr = "1"; Text = "Elo"; Key = "fsharp"; Date = DateTime.Now; Lang = "En"; Longitude = 1.2; Latitude = 1.3; Sentiment = 22}|]
     |> Redux.createStore tweetReducer
-let model = new Object()
-ReactDom.render(R.com<App.AppComponent,_,_> model [], Browser.document.getElementById("container")) |> ignore
+
+ReactDom.render(
+        R.com<App.AppComponent,_,_> { Store = store } [], Browser.document.getElementById("container")
+    ) |> ignore
