@@ -7,10 +7,10 @@ open Score
 module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
-type AppStore = { Store: Redux.IStore<Tweet[], TweetAction>}
+type AppProps = { Store: Redux.IStore<Tweet[], TweetAction>}
 
 type AppComponent(props) as this= 
-    inherit React.Component<obj,Tweets>(props)
+    inherit React.Component<AppProps, Tweets>(props)
     do this.state <- { data = [||] }
 
     member x.handleSearchBoxQuery (query: string) =
