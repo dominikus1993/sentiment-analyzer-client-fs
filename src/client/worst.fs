@@ -8,8 +8,15 @@ module React = Fable.Import.React
 module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
-type WorstComponent(props) =
+type WorstScoreComponent(props) =
     inherit React.Component<Tweets, obj>(props)
 
+    member x.GetWorst() = 
+        let result = x.props.data |> Array.sortBy(fun x -> x.Sentiment) |> Array.rev |> Array.head 
+        (result.Sentiment, result.Date)
+
     member x.render () =
-        R.div [ P.ClassName "score" ] []
+        let (sentiment, date) = x.GetWorst()
+        let score = R.div[][ unbox (sentiment.ToString()) ]
+        let date = R.div[][ unbox (date.ToString()) ]
+        R.div [ P.ClassName "col-md-4" ] [ score; date ]
