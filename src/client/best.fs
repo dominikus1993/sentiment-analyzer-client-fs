@@ -12,7 +12,7 @@ type BestScoreComponent(props) =
     inherit React.Component<Tweets, obj>(props)
 
     member x.GetBest() = 
-        let result = x.props.data |> Array.sortBy(fun x -> x.Sentiment) |> Array.head 
+        let result = x.props.data |> Array.maxBy(fun x -> x.Sentiment)
         (result.Sentiment, result.Date)
 
     member x.render () =

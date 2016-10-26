@@ -12,7 +12,7 @@ type WorstScoreComponent(props) =
     inherit React.Component<Tweets, obj>(props)
 
     member x.GetWorst() = 
-        let result = x.props.data |> Array.sortBy(fun x -> x.Sentiment) |> Array.rev |> Array.head 
+        let result = x.props.data |> Array.minBy(fun x -> x.Sentiment)
         (result.Sentiment, result.Date)
 
     member x.render () =
