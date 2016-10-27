@@ -33,7 +33,7 @@ module TrendUtils =
         let tmta = t |> Array.map(fun x -> x - averageT)
         let ymya = y |> Array.map(fun x -> (x |> float) - averageY)
         let numerator = tmta |> Array.zip(ymya) |> Array.map(fun (x,y) -> x * y) |> Array.sum
-        let denominator = tmta |> Array.map(fun x -> x ** 2) |> Array.sum
+        let denominator = tmta |> Array.map(fun x -> x ** 2.0) |> Array.sum
         numerator / denominator
     let rateTrend = function
         | 0.0 -> Stable("")
