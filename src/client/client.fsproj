@@ -52,6 +52,7 @@
     <Compile Include="best.fs" />
     <Compile Include="worst.fs" />
     <Compile Include="trend.fs" />
+    <Compile Include="detail.fs" />
     <Compile Include="button.fs" />
     <Compile Include="tweetTextInput.fs" />
     <Compile Include="searchBox.fs" />
