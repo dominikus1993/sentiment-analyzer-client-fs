@@ -17,6 +17,7 @@ type WorstScoreComponent(props) =
 
     member x.render () =
         let (sentiment, date) = x.GetWorst()
+        let header = R.h1[][unbox "Najgorszy wynik"]
         let score = R.div[][ unbox (sentiment.ToString()) ]
         let date = R.div[][ unbox (date.ToString()) ]
-        R.div [ P.ClassName "col-md-4" ] [ score; date ]
+        R.div [ P.ClassName "worst" ] [ header; score; date ]

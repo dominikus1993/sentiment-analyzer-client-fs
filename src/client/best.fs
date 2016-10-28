@@ -17,6 +17,7 @@ type BestScoreComponent(props) =
 
     member x.render () =
         let (sentiment, date) = x.GetBest()
+        let header = R.h1[][unbox "Najlepszy wynik"]
         let score = R.div[][ unbox (sentiment.ToString()) ]
         let date = R.div[][ unbox (date.ToString()) ]
-        R.div [ P.ClassName "col-md-4" ] [ score; date ]
+        R.div [ P.ClassName "best" ] [ header; score; date ]

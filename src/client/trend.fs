@@ -54,5 +54,7 @@ type TrendComponent(props) =
             "Stabilny"
 
     member x.render () =
-        R.div [ P.ClassName "trend-img" ] [unbox (x.trendImg())]
+        let header = R.h1[][unbox "Trend"] 
+        let trend = unbox (x.trendImg());
+        R.div [ P.ClassName "trend-img" ] [header; trend]
         

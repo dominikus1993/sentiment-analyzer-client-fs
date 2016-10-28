@@ -19,4 +19,4 @@ type DetailComponent(props) =
         let best = R.div[P.ClassName "col-md-4"] [R.com<WorstScoreComponent, _, _> x.props []]
         let worst = R.div[P.ClassName "col-md-4"] [R.com<BestScoreComponent, _, _> x.props []]
         
-        R.div [ P.ClassName "row" ] [best; trend; worst]
+        R.div [ P.ClassName (classNames [("row", true); ("text", true)]) ] [best; trend; worst]
