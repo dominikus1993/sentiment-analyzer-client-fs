@@ -9,8 +9,37 @@ module R = Fable.Helpers.React
 module P = Fable.Helpers.React.Props
 
 module TrendUtils =
-    let assignTrend(tweets: Tweets) =   
-        2
+
+    type Trend =
+        | Decreasing of string
+        | Increasing of string
+        | Stable of string
+
+    let private aritmeticAverageT t = 
+        let elementsQuantity = t |> Array.length |> float
+        let sum =  t |> Array.sum
+        sum / float elementsQuantity
+
+    let private aritmeticAverageY(y: int[]) = 
+        let elementsQuantity = y |> Array.length |> float
+        let sum =  y |> Array.sum |> float
+        sum / float elementsQuantity
+
+    let countA (tweets: Tweet[]) =
+        let t = [|1.0..(tweets |> Array.length |> float)|]
+        let y = tweets |> Array.map(fun tweet -> tweet.Sentiment)
+        let averageT = aritmeticAverageT(t)
+        let averageY = aritmeticAverageY(y)
+        let tmta = t |> Array.map(fun x -> x - averageT)
+        let ymya = y |> Array.map(fun x -> (x |> float) - averageY)
+        let numerator = tmta |> Array.zip(ymya) |> Array.map(fun (x,y) -> x * y) |> Array.sum
+        let denominator = tmta |> Array.map(fun x -> x ** 2.0) |> Array.sum
+        numerator / denominator
+    let rateTrend = function
+        | 0.0 -> Stable("")
+        | num when num > 0.0 -> Increasing("")
+        | num when num < 0.0 -> Decreasing("")
+        | _ -> Stable("")
 
 type TrendComponent(props) =
     inherit React.Component<Tweets, obj>(props)
