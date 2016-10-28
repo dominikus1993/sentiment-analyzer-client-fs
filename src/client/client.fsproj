@@ -49,7 +49,10 @@
     <Compile Include="utils.fs" />
     <Compile Include="ajax.fs" />
     <Compile Include="reducers.fs" />
-    <Compile Include="chart.fs" />
+    <Compile Include="best.fs" />
+    <Compile Include="worst.fs" />
+    <Compile Include="trend.fs" />
+    <Compile Include="detail.fs" />
     <Compile Include="button.fs" />
     <Compile Include="tweetTextInput.fs" />
     <Compile Include="searchBox.fs" />
